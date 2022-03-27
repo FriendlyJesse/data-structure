@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "module": "system",
+    "module": "ESNEXT",
     "noImplicitAny": true,
     "removeComments": true,
     "preserveConstEnums": true,
