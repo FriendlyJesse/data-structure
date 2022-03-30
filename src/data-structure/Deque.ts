@@ -40,7 +40,7 @@ class Deque<T> {
 
   addFront (element: T) {
     if (this.isEmpty()) { // 如果这个双端队列是空的，那么将它添加到双端队列的后端
-      // this.addBack(element)
+      this.addBack(element)
     } else if (this.lowestCount > 0) { // 如果有元素被从前端移除过，那么将下标减 1 并赋值
       this.lowestCount--
       this.items[this.lowestCount] = element
