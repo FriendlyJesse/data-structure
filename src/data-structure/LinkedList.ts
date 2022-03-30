@@ -130,12 +130,17 @@ class LinkedList<T> {
     return this.count
   }
 
-  isEmpty() {
+  isEmpty () {
     return this.size() === 0
   }
 
   getHead () {
     return this.head
+  }
+
+  clear() {
+    this.head = undefined
+    this.count = 0
   }
 
   toString () {

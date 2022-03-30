@@ -106,6 +106,28 @@ class DoublyLinkedList<T> extends LinkedList<T> {
     return current.element
   }
 
+  getTail() {
+    return this.tail
+  }
+
+  clear() {
+    super.clear()
+    this.tail = undefined
+  }
+
+  inverseToString() {
+    if (this.tail == null) {
+      return ''
+    }
+    let objString = `${this.tail.element}`
+    let previous = this.tail.prev
+    while (previous != null) {
+      objString = `${objString},${previous.element}`
+      previous = previous.prev
+    }
+    return objString
+  }
+
 }
 
 export default DoublyLinkedList
