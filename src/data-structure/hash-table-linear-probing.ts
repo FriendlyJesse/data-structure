@@ -49,6 +49,7 @@ class HashTableLinearProbing<K, V> extends HashTable<K, V> {
     if (this.table[position] == null) return undefined 
     if (this.table[position].key === key) {
       delete this.table[position]
+      // 必须存在验证，否则下次寻找的就是一个空值就永远丢失了值
       this.verifyRemoveSideEffect(key, position)
       return true
     }
@@ -58,17 +59,27 @@ class HashTableLinearProbing<K, V> extends HashTable<K, V> {
     }
     if (this.table[index] != null && this.table[index].key === key) {
       delete this.table[index]
+      // 必须存在验证，否则下次寻找的就是一个空值就永远丢失了值
       this.verifyRemoveSideEffect(key, index)
       return true
     }
   }
 
+  /**
+   * 验证删除操作是否有副作用
+   * @param key 被删除的key
+   * @param removedPosition 被删除key的位置
+   */
   verifyRemoveSideEffect (key: K, removedPosition: number) {
     const hash = this.hasCode(key)
     let index = removedPosition + 1
+    // 迭代查找是否有需要往上移动的的元素
     while (this.table[index] != null) {
       const posHash = this.hasCode(this.table[index].key)
+      // 如果当前元素 hash 值小于或等于元素值 || 当前元素的 hash 或等于 上一个被移除 key 的 hash 值
+      // 那么将当前元素移动至被被删除至的位置，而后覆盖当前值
       if (posHash <= hash || posHash <= removedPosition) {
+        // 依次向上移动
         this.table[removedPosition] = this.table[index]
         delete this.table[index]
         removedPosition = index
