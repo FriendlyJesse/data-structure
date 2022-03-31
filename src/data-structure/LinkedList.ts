@@ -1,6 +1,6 @@
 // Oh My God，node直接运行必须加上后缀
 import { defaultEqualFns } from '../utils.js'
-import { Node } from '../modules/linkedListModule.js'
+import { Node } from '../modules/LinkedListModule.js'
 
 /**
  * 链表

@@ -1,4 +1,4 @@
-import { DoublyNode } from '../modules/linkedListModule.js'
+import { DoublyNode } from '../modules/LinkedListModule.js'
 import { defaultEqualFns } from '../utils.js'
 import LinkedList from './LinkedList.js'
 

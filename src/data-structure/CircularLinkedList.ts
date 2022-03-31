@@ -1,6 +1,6 @@
 import LinkedList from './LinkedList.js'
 import { defaultEqualFns } from '../utils.js'
-import { Node } from '../modules/linkedListModule.js'
+import { Node } from '../modules/LinkedListModule.js'
 
 /**
  * 循环链表
