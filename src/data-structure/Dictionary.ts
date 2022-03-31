@@ -1,6 +1,10 @@
 import ValuePair from '../modules/ValuePair.js'
 import { defaultToString } from '../utils.js'
 
+/**
+ * 字典即是Map类
+ * 它与 Set 类不同的点在于它存储的是[键，值]对
+ */
 class Dictionary<K, V> {
   private table: { [key: string]: ValuePair<K, V> } = {}
   constructor(protected toStrFn = defaultToString) {}
